@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>loginSucess</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>loginFail</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>loginWarn</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/outros/recuperarsenha.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>recuperatrue</from-outcome>
+            <to-view-id>/outros/recuperarsenha.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>recuperafalse</from-outcome>
+            <to-view-id>/outros/recuperarsenha.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/usuario/novousuario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>userregistersucess</from-outcome>
+            <to-view-id>/usuario/novousuario.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>userregisterfail</from-outcome>
+            <to-view-id>/usuario/novousuario.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/outros/backup.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>backuptrue</from-outcome>
+            <to-view-id>/outros/backup.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>backupfalse</from-outcome>
+            <to-view-id>/outros/backup.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

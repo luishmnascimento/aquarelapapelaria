@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Cab</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="170" resizable="true" minSize="170" maxSize="300"  style="border: none;">
+                <p:graphicImage value="/resources/imagens/site_papelaria.png" style="width: 100px; margin: 20px 0 0 50px; " />
+                <h1 style="color: dodgerblue; display: inline; font-family: DJB This Font is Worn; font-size: 30px; margin-left: 270px;">PAPELARIA AQUARELA</h1>
+                <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Administrador" url="http://www.primefaces.org" icon="ui-icon-admin" />
+                        <p:menuitem value="Usuários" url="/usuario/novousuario.xhtml" icon="ui-icon-contact" />
+                        <p:menuitem value="Clientes" url="http://www.primefaces.org" icon="ui-icon-close" />
+                        <p:menuitem value="Produtos" url="http://www.primefaces.org" icon="ui-icon-product" />
+                        <p:menuitem value="Estoque" url="#" icon="ui-icon-close" />
+                        <p:menuitem value="Backup" url="http://localhost:8084/aquarelapapelaria/outros/backup.xhtml" icon="ui-icon-close" />
+                        <p:menuitem value="Trocar Usuário" url="http://localhost:8084/aquarelapapelaria/login.xhtml" icon="ui-icon-close" />
+                        <p:menuitem value="Sair" url="#" icon="ui-icon-close" />
+                    </p:menubar>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center" style="border: none;">
+                <ui:insert name="centro">
+                    <!--<h1>recuperar senha</h1>-->
+                </ui:insert>
+            </p:layoutUnit>
+        </p:layout>  
+    </h:body>
+</html>
+

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Login | Aquarela Papelaria</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="/templates/simples.xhtml">
+            <ui:define name="centro">
+                <h:form>
+                    <p:growl id="growl" sticky="true" showDetail="true"/>
+                    <p:panel header="Autenticação" style="height: 400px;" >
+                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />
+                        <h:panelGrid id="grid" columns="1" cellpadding="4" columnClasses="label, value">
+                            <h:outputText id="txtUsuario" class="txtUsuario" value="Usuário: *" style="margin: 0px 0 0 500px;" />
+                            <p:inputText id="usuario" placeholder="Digite seu usuário" value="#{usuarioController.usuario.usuario}" required="true"  requiredMessage="Campo Usuário é obrigatório"  label="Usuario" style="margin: 0px 0 0 500px; width: 230px;" />
+
+                            <h:outputText id="txtSenha" value="Senha *" class="txt" style="margin: 0px 0 0 500px;"/>
+                            <p:inputText id="senha" type="password" placeholder="Digite sua senha" value="#{usuarioController.usuario.senha}" required="true" requiredMessage="Campo Senha é obrigatório"  label="Senha" style="margin: 0px 0 0 500px;  width: 230px;" />
+                        </h:panelGrid>
+
+                        <p:commandButton value="Entrar" update="grid" action="#{usuarioController.login()}" icon="ui-icon-check" style="margin: 20px 0 0  507px; width: 110px;"/>
+                        <p:commandButton value="Limpar" type="reset" icon="ui-icon-circle-arrow-w" style="margin-left: 12px; width: 110px;" />
+                        <br/>
+                        <br/>
+                        <h:link value="Esqueci  minha senha" outcome="outros/recuperarsenha.xhtml" style=" font-family: arial; margin-left: 550px; font-weight: bold; color: #269abc; font-size: 14px;" />
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>
+

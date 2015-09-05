@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Novo Usuário | Aquarela Papelaria</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="../templates/completo.xhtml">
+            <ui:define name="centro">
+                <h:form>
+                    <p:growl id="growl" sticky="true" showDetail="true"/>
+                    <p:panel header="Cadastrar Usuário" class="paineu" style="height: 400px;" >
+                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />
+                        <h:panelGrid id="grid" columns="1" cellpadding="4" columnClasses="label, value">
+
+                            <h:outputText id="txtUsuario" class="txtUsuario" value="Usuário: *" style="margin: 0px 0 0 500px;" />
+                            <p:inputText id="usuario" placeholder="Usuário" value="#{usuarioController.usuario.usuario}" required="true"  requiredMessage="Campo USUARIO é obrigatório"  label="usuario" style="margin: 0px 0 0 500px; width: 250px;" />
+
+                            <h:outputText id="txtEmail" class="txtEmail" value="E-mail: *" style="margin: 0px 0 0 500px;" />
+                            <p:inputText id="email" placeholder="E-mail" value="#{usuarioController.usuario.email}" required="true"  requiredMessage="Campo EMAIL é obrigatório"  label="email" style="margin: 0px 0 0 500px; width: 250px;" />
+
+                            <h:outputText value="Senha *" class="txt" style="margin: 0px 0 0 500px;"/>
+                            <p:inputText id="senha" type="password" placeholder="Digite sua senha" value="#{usuarioController.usuario.senha}" required="true" requiredMessage="Campo Senha é obrigatório"  label="Senha" style="margin: 0px 0 0 500px;  width: 250px;" />
+
+                        </h:panelGrid>
+
+                        <p:commandButton value="Cadastrar" update="grid" action="#{usuarioController.insereUsuario()}" style="margin: 20px 0 0  507px; width: 130px;" />
+                        <p:commandButton value="Limpar" type="reset" style="margin-left: 12px; width: 110px;" />
+
+                        <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                            <p:graphicImage value="/resources/imagens/ajax-loader.gif" />
+                        </p:dialog>
+
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>
+

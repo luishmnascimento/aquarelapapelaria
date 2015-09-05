@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Backup | Aquarela Papelaria</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="../templates/completo.xhtml">
+            <ui:define name="centro">
+                <h:form>
+                    <p:growl id="growl" sticky="true" showDetail="true"/>
+                    <p:panel header="Rotina de Backup" style="height: 400px;" >
+                        <p>Esta rotina vai gerar um Backup Geral do Banco de Dados. Armazenamento no Diretório: <b>C: /Backup/Backup Aquarela 01-01-2010.sql</b></p>
+                        <p>Aguarde a exibição da mensagem para o fim do processo! Deseja realizar o Backup agora?</p>
+                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />
+                        <h:panelGrid id="grid" columns="2" cellpadding="4" columnClasses="label, value">
+                            <p:inputText id="backup" disabled="true" value="C:/Backup/" label="Email" style="margin: 10px 0 0 0px; width: 230px; width: 300px;" />
+                            <p:commandButton value="Backup Local" update="grid" action="#{backupController.realizaBackup()}" style="margin: 10px 0 0  10px; width: 200px;" />
+
+                            <p:inputText id="backupExterno" value="" label="Email" style="margin: 10px 0 0 0px; width: 230px; width: 300px;" />
+                            <p:commandButton value="Backup Externo" update="grid" action="#" style="margin: 10px 0 0  10px; width: 200px;" />
+
+                            <p:inputText id="backupNuvem" disabled="true" value="aquarelapapelaria01@hotmail.com" label="Email" style="margin: 10px 0 0 0px; width: 230px; width: 300px;" />
+                            <p:commandButton value="Backup Nuvem" update="grid" action="#" style="margin: 10px 0 0  10px; width: 200px;" />
+
+                            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                <p:graphicImage value="/resources/imagens/ajax-loader.gif" />
+                            </p:dialog>
+
+                        </h:panelGrid>
+                    </p:panel>
+
+
+                </h:form>
+            </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>
+
